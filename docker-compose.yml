@@ -11,7 +11,6 @@ services:
     ports:
       - "80:80"
     container_name: postpostmanapi
-    depends_on:
   scheduler:
     build: https://github.com/EASS-HIT-2022/PostPostmanScheduler.git
     container_name: postpostmanscheduler
