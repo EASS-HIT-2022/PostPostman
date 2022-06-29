@@ -1,0 +1,34 @@
+version: "1.0"
+services:
+  db: 
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+  executor:
+    build: https://github.com/EASS-HIT-2022/PostPostmanExecutor.git
+    ports:
+      - "3000:3000"
+    container_name: postpostmanexecutor
+    depends_on:
+      - db
+  api:
+    build: https://github.com/EASS-HIT-2022/PostPostmanAPI.git
+    ports:
+      - "80:80"
+    container_name: postpostmanapi
+    depends_on:
+      - executor
+  scheduler:
+    build: https://github.com/EASS-HIT-2022/PostPostmanScheduler.git
+    container_name: postpostmanscheduler
+    depends_on:
+      - api
+  client:
+    build: https://github.com/EASS-HIT-2022/PostPostmanClient.git
+    ports:
+      - "80:80"
+    container_name: postpostmanclient
+    depends_on:
+      - api
