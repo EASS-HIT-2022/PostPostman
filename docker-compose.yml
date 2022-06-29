@@ -28,7 +28,7 @@ services:
   client:
     build: https://github.com/EASS-HIT-2022/PostPostmanClient.git
     ports:
-      - "80:80"
+      - "8000:80"
     container_name: postpostmanclient
     depends_on:
       - api
