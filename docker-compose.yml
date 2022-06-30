@@ -7,14 +7,14 @@ services:
     volumes:
       - ./data:/data/db
   executor:
-    build: http://github.com/EASS-HIT-2022/PostPostmanExecutor.git#:.
+    build: http://github.com/EASS-HIT-2022/PostPostmanExecutor.git#:
     ports:
       - "3000:3000"
     container_name: postpostmanexecutor
     depends_on:
       - db    
   api:
-    build: https://github.com/EASS-HIT-2022/PostPostmanAPI.git#:.
+    build: https://github.com/EASS-HIT-2022/PostPostmanAPI.git#:
     ports:
       - "80:80"
     container_name: postpostmanapi
