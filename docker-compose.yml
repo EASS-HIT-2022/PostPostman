@@ -14,7 +14,7 @@ services:
     depends_on:
       - db    
   api:
-    build: https://github.com/EASS-HIT-2022/PostPostmanAPI.git
+    build: https://github.com/EASS-HIT-2022/PostPostmanAPI.git#:.
     ports:
       - "80:80"
     container_name: postpostmanapi
